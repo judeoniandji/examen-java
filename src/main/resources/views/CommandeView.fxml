@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml" spacing="10" padding="10">
+    <!-- Recherche du client -->
+    <HBox spacing="10">
+        <Label text="Numéro de téléphone :" />
+        <TextField fx:id="txtTelephone" promptText="Entrez le numéro de téléphone" />
+        <Button text="Rechercher" onAction="#onSearchClient" />
+    </HBox>
+
+    <!-- Informations du client -->
+    <VBox spacing="5">
+        <Label text="Informations du client" />
+        <TextField fx:id="txtNomPrenom" promptText="Nom et Prénom" editable="false" />
+        <TextField fx:id="txtAdresse" promptText="Adresse" editable="false" />
+    </VBox>
+
+    <!-- Gestion des articles -->
+    <VBox spacing="10">
+        <HBox spacing="10">
+            <ComboBox fx:id="cbArticles" promptText="Choisir un article" />
+            <TextField fx:id="txtPrix" promptText="Prix" />
+            <TextField fx:id="txtQuantite" promptText="Quantité" />
+            <Button text="Ajouter" onAction="#onAddArticle" />
+        </HBox>
+
+        <TableView fx:id="tableArticles">
+            <columns>
+                <TableColumn text="Article" fx:id="colArticle" />
+                <TableColumn text="Prix" fx:id="colPrix" />
+                <TableColumn text="Quantité" fx:id="colQuantite" />
+                <TableColumn text="Montant" fx:id="colMontant" />
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Validation -->
+    <HBox spacing="10">
+        <Label text="Total :" />
+        <Label fx:id="lblTotal" text="0.0" style="-fx-font-weight: bold; -fx-text-fill: blue;" />
+        <Button text="Valider la Commande" onAction="#onValidateOrder" />
+    </HBox>
+</VBox>
